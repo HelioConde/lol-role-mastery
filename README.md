@@ -1,31 +1,46 @@
-# LoL Role Mastery
+<div align="center">
+  <h1>🧪 LoL Role Mastery</h1>
+  <p><strong>Uma trilha de estudo por função para transformar metas de melhoria em exercícios e revisões consistentes.</strong></p>
+  <p><img alt="Status" src="https://img.shields.io/badge/status-concep%C3%A7%C3%A3o-64748b"></p>
+</div>
 
-**Ideia de produto independente para League of Legends: construir uma trilha de aprendizado por função no jogo.**
+> **Projeto em concepção — documentação apenas.** O repositório ainda não contém frontend, backend ou aplicativo executável. O fluxo abaixo é um plano de produto, não uma funcionalidade disponível.
 
-![Status](https://img.shields.io/badge/status-concepção-64748b)
+## Problema
 
-## O problema que queremos resolver
-
-Ferramentas genéricas mostram muitos números, mas nem sempre ajudam o jogador a transformar seu histórico ou suas anotações em uma próxima ação clara. O objetivo deste projeto é construir uma experiência especializada e fácil de usar.
+Jogadores frequentemente tentam melhorar tudo de uma vez e não conseguem medir se dominaram fundamentos da sua função.
 
 ## Experiência proposta
 
-Escolher uma função, estudar fundamentos e acompanhar metas de melhoria.
+Escolher uma função → revisar fundamentos → selecionar exercício → registrar evidência da prática → avaliar avanço.
 
-## Estado atual
+## Dados mínimos do primeiro protótipo
 
-**Somente planejamento:** nesta revisão, o repositório contém documentação, sem aplicação ou serviço executável. O fluxo descrito acima é **uma proposta**, não uma funcionalidade já entregue.
+Função, habilidade, dificuldade, exercício, data de treino, evidência e autoavaliação.
 
-## Primeiro marco
+## MVP planejado
 
-Documentar o primeiro currículo de habilidades para uma função.
+Uma trilha completa para uma função, com exercícios editáveis, progresso local e revisão semanal.
 
-Antes de expandir, o MVP deve demonstrar seu fluxo principal, funcionar em dispositivos móveis e ter testes básicos. Integrações, autenticação e persistência serão decididas conforme a necessidade real, sem prometer suporte antecipadamente.
+**Critério para considerar o MVP útil:** O jogador consegue escolher uma habilidade, praticar e consultar a evolução sem criar conta.
 
-## Portfólio e referências
+## Limites e dependências
 
-Este experimento integra o [Ideias IA Lab](https://github.com/HelioConde/ideias-ia-lab). O código do produto deve permanecer neste repositório quando o desenvolvimento começar.
+Métricas automáticas e recomendações por patch seriam integrações futuras, não requisitos do primeiro protótipo.
 
-> League of Legends e seus elementos pertencem aos respectivos titulares. Este é um projeto independente, não oficial.
+A implementação deve começar com **dados demonstrativos identificados e armazenamento local**, se adequado. Integrações externas, autenticação e anúncios exigem revisão própria; não serão anunciados como funcionais antes de existirem.
+
+## Próximo passo
+
+1. Desenhar uma tela com o fluxo principal.
+2. Implementar um protótipo pequeno que funcione no celular.
+3. Testar navegação, salvar/recuperar dados e tratamento de casos vazios.
+4. Pedir feedback de usuários antes de ampliar o escopo.
+
+## Projetos relacionados
+
+Este conceito faz parte do [Ideias IA Lab](https://github.com/HelioConde/ideias-ia-lab). Explore [outros repositórios de Hélio Conde](https://github.com/HelioConde?tab=repositories).
+
+*League of Legends pertence aos seus respectivos titulares. Projeto independente, sem afiliação oficial.*
 
 Autor: [Hélio Conde](https://github.com/HelioConde).
