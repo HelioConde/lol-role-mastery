@@ -35,3 +35,6 @@ Capturas reais Playwright 320/390px revisadas. Correção do skip link oculto po
 
 ## Accessibility QA — 28/10/2026
 Testes Playwright de Tab/Shift+Tab, skip link para a área principal, foco visível, rótulos e contraste dos inputs e placeholders (4,5:1), botões/links e campos com altura mínima de 44px. Layout e dados existentes preservados; teste automático direcionado não substitui auditoria WCAG integral.
+
+## Navegação móvel do currículo
+Menu responsivo até 650px com acesso direto a Trilha por função, Diário e Novo treino. Aparência de pergaminho/dojo preservada. Detalhes nativos por teclado com fechamento em Escape e ao navegar, sem dependências, banco ou mudança no LocalStorage. Playwright testa fluxo em cinco larguras.
