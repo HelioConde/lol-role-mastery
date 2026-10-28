@@ -38,6 +38,31 @@ function formRecord(){const data={id:editId||crypto.randomUUID(),updatedAt:new D
  for(const f of fields){const v=byId("field-"+f.key).value;data[f.key]=f.kind==="number"?Number(v):v.trim();}
  return data;}
 function reset(){editId=null;e.form.reset();byId("save").textContent="Salvar registro";byId("cancel").hidden=true;for(const f of fields){if(f.kind==="date")byId("field-"+f.key).value=new Date().toISOString().slice(0,10);}}
+function renderCurriculum(){
+ const out=byId("role-curriculum");out.replaceChildren();
+ const roles=C.fields.find(f=>f.key==="role").options;
+ for(const role of roles){
+  const notes=rows.filter(r=>r.role===role),finished=notes.filter(r=>r.status==="Revisado").length;
+  const active=notes.filter(r=>r.status!=="Revisado").sort((a,b)=>b.updatedAt.localeCompare(a.updatedAt));
+  const next=active[0]||notes.slice().sort((a,b)=>b.updatedAt.localeCompare(a.updatedAt))[0];
+  const card=node("article","curriculum-role");card.dataset.role=role;
+  const head=node("div","curriculum-head");head.append(node("h3","",role),node("span","",notes.length+" treino"+(notes.length===1?"":"s")));card.append(head);
+  const progress=node("div","curriculum-progress");
+  progress.setAttribute("role","progressbar");progress.setAttribute("aria-label","Treinos revisados em "+role);
+  progress.setAttribute("aria-valuemin","0");progress.setAttribute("aria-valuemax","100");
+  const value=notes.length?Math.round(finished/notes.length*100):0;progress.setAttribute("aria-valuenow",String(value));
+  const bar=node("span","curriculum-fill");bar.style.width=value+"%";progress.append(bar);
+  card.append(progress,node("p","curriculum-percent",finished+"/"+notes.length+" revisados · autoavaliação manual"));
+  if(next){const lesson=node("div","curriculum-lesson");lesson.append(node("span","",active.length?"PRÓXIMA HABILIDADE":"ÚLTIMA HABILIDADE"),node("strong","",next.skill),node("p","",next.exercise));card.append(lesson);}
+  else card.append(node("p","curriculum-empty","Nenhum treino ainda nesta função."));
+  const buttons=node("div","curriculum-actions");
+  for(const [action,label] of [["filter","Ver treinos"],["prepare","Preparar exercício"]]){
+   const b=node("button",action==="prepare"?"curriculum-primary":"",label);b.type="button";b.dataset.curriculum=action;b.dataset.role=role;
+   if(action==="prepare"&&!next)b.disabled=true;
+   buttons.append(b);
+  }card.append(buttons);out.append(card);
+ }
+}
 function card(r){
  const article=node("article","record");
  const head=node("div","record-head");head.append(node("h3","",r[C.titleField]),node("span","state",r.status));article.append(head);
@@ -74,7 +99,7 @@ function insights(){
  byId("stat-groups").textContent=groups.length;
 }
 function render(){
- insights();const query=e.search.value.trim().toLocaleLowerCase("pt-BR"),group=e.groups.value,stage=e.stage.value;
+ insights();renderCurriculum();const query=e.search.value.trim().toLocaleLowerCase("pt-BR"),group=e.groups.value,stage=e.stage.value;
  const filtered=[...rows].sort((a,b)=>b.updatedAt.localeCompare(a.updatedAt)).filter(r=>
   (!group||r[C.groupBy]===group)&&(!stage||r.status===stage)&&(!query||fields.some(f=>String(r[f.key]||"").toLocaleLowerCase("pt-BR").includes(query)))
  );
@@ -110,6 +135,18 @@ e.list.addEventListener("click",event=>{
 });
 for(const control of [e.groups,e.stage])control.addEventListener("change",render);
 e.search.addEventListener("input",render);
+byId("role-curriculum").addEventListener("click",event=>{
+ const button=event.target.closest("button[data-curriculum]");if(!button)return;
+ const role=button.dataset.role;
+ if(button.dataset.curriculum==="filter"){e.groups.value=role;e.search.value="";e.stage.value="";render();byId("registros").scrollIntoView({behavior:"instant"});return;}
+ const next=rows.filter(r=>r.role===role).sort((a,b)=>{
+  const av=a.status==="Revisado"?1:0,bv=b.status==="Revisado"?1:0;return av-bv||b.updatedAt.localeCompare(a.updatedAt);
+ })[0];if(!next)return;
+ reset();byId("field-role").value=role;byId("field-skill").value=next.skill;byId("field-difficulty").value=next.difficulty;
+ byId("field-exercise").value=next.exercise;byId("field-evidence").value="";
+ announce("Exercício preparado para "+role+". Registre sua nova evidência após praticar.");
+ byId("novo").scrollIntoView({behavior:"instant"});byId("field-evidence").focus({preventScroll:true});
+});
 byId("demo").addEventListener("click",()=>{
  if(rows.length&&!confirm("Substituir seus registros pelos exemplos fictícios?"))return;
  rows=C.demo.map((d,i)=>({...d,id:"demo-"+C.repo+"-"+i,updatedAt:new Date().toISOString()}));
