@@ -29,3 +29,6 @@ Dojo de habilidades: reestruturação da hierarquia, cartões, densidade e trata
 
 ## Trilha de funções
 Cinco cards de papel (Topo, Selva, Meio, Atirador, Suporte), exibindo revisões manuais e a próxima habilidade do histórico local. `Ver treinos` usa o filtro existente; `Preparar exercício` inicia rascunho não salvo, preservando esquema e backup LocalStorage. Playwright verifica os cinco cards, progressbars, filtro e rascunho.
+
+## Visual QA mobile — 28/10/2026
+Capturas reais Playwright 320/390px revisadas. Correção do skip link oculto por `clip-path` fora do foco e visível ao focar com teclado. Banner de apresentação reduzido em telas pequenas para priorizar os fluxos de treino. QA automatizado acrescenta validação de foco sem abrir APIs externas.
