@@ -38,3 +38,6 @@ Testes Playwright de Tab/Shift+Tab, skip link para a área principal, foco visí
 
 ## Navegação móvel do currículo
 Menu responsivo até 650px com acesso direto a Trilha por função, Diário e Novo treino. Aparência de pergaminho/dojo preservada. Detalhes nativos por teclado com fechamento em Escape e ao navegar, sem dependências, banco ou mudança no LocalStorage. Playwright testa fluxo em cinco larguras.
+
+## Navegação contextual desktop
+Destinos: Trilha por função, Diário, Novo treino. Testes Playwright garantem todos os IDs existentes, navegação ao primeiro recurso e ausência de menu desktop nas larguras mobile. Badge decorativo removido no tablet estreito. CSS independente da versão mobile.
