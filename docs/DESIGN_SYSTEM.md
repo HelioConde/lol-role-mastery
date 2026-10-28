@@ -23,3 +23,6 @@ Autoavaliação de 1 a 5 é subjetiva e não corresponde a elo, MMR ou ranking o
 
 ## QA
 Workflow GitHub Actions executa validação estática e Playwright 5 resoluções com capturas, teste de criação, edição, persistência LocalStorage, exportação, busca, filtros, exclusão e overflow. A publicação usa apenas assets estáticos em `gh-pages/(root)`.
+
+## Direção visual exclusiva
+Dojo de habilidades: reestruturação da hierarquia, cartões, densidade e tratamento de dados em `identity.css`, preservando o núcleo JS e o LocalStorage. QA visual com cinco resoluções.
