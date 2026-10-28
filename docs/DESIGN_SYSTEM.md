@@ -26,3 +26,6 @@ Workflow GitHub Actions executa validação estática e Playwright 5 resoluçõe
 
 ## Direção visual exclusiva
 Dojo de habilidades: reestruturação da hierarquia, cartões, densidade e tratamento de dados em `identity.css`, preservando o núcleo JS e o LocalStorage. QA visual com cinco resoluções.
+
+## Trilha de funções
+Cinco cards de papel (Topo, Selva, Meio, Atirador, Suporte), exibindo revisões manuais e a próxima habilidade do histórico local. `Ver treinos` usa o filtro existente; `Preparar exercício` inicia rascunho não salvo, preservando esquema e backup LocalStorage. Playwright verifica os cinco cards, progressbars, filtro e rascunho.
