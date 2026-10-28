@@ -32,3 +32,6 @@ Cinco cards de papel (Topo, Selva, Meio, Atirador, Suporte), exibindo revisões 
 
 ## Visual QA mobile — 28/10/2026
 Capturas reais Playwright 320/390px revisadas. Correção do skip link oculto por `clip-path` fora do foco e visível ao focar com teclado. Banner de apresentação reduzido em telas pequenas para priorizar os fluxos de treino. QA automatizado acrescenta validação de foco sem abrir APIs externas.
+
+## Accessibility QA — 28/10/2026
+Testes Playwright de Tab/Shift+Tab, skip link para a área principal, foco visível, rótulos e contraste dos inputs e placeholders (4,5:1), botões/links e campos com altura mínima de 44px. Layout e dados existentes preservados; teste automático direcionado não substitui auditoria WCAG integral.
