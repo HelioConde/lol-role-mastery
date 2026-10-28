@@ -1,46 +1,26 @@
-<div align="center">
-  <h1>🧪 LoL Role Mastery</h1>
-  <p><strong>Uma trilha de estudo por função para transformar metas de melhoria em exercícios e revisões consistentes.</strong></p>
-  <p><img alt="Status" src="https://img.shields.io/badge/status-concep%C3%A7%C3%A3o-64748b"></p>
-</div>
+# LoL Role Mastery
 
-> **Projeto em concepção — documentação apenas.** O repositório ainda não contém frontend, backend ou aplicativo executável. O fluxo abaixo é um plano de produto, não uma funcionalidade disponível.
+Escolha uma função, pratique fundamentos e registre evidências da sua evolução. É uma autoavaliação, não um ranking oficial.
 
-## Problema
+## MVP funcional
+- Criar, editar, excluir e pesquisar registros manuais.
+- Filtrar por grupo (role) e estado de revisão; visualizar resumos locais.
+- Backup JSON com importação validada, versão e limite de 200 registros; exemplos **fictícios** opcionais.
+- Persistência em LocalStorage, sem servidor, autenticação, API Riot/Blizzard nem banco de dados.
+- Layout responsivo, teclado, foco visível e movimento reduzido.
 
-Jogadores frequentemente tentam melhorar tudo de uma vez e não conseguem medir se dominaram fundamentos da sua função.
+## Executar
+```bash
+python -m http.server 8000
+```
+Abrir `http://localhost:8000`.
 
-## Experiência proposta
+## GitHub Pages
+Publicação estática a partir de `gh-pages/(root)`, com apenas `index.html`, `config.js`, `app.js`, `styles.css`, `favicon.svg` e `.nojekyll`. Se Pages ainda não estiver habilitado, ativar em Settings → Pages → Deploy from a branch → gh-pages / (root). A fonte de publicação não executa serviços externos.
 
-Escolher uma função → revisar fundamentos → selecionar exercício → registrar evidência da prática → avaliar avanço.
+## Qualidade e histórico
+`docs/DESIGN_SYSTEM.md` contém os padrões Taste/Web Design Guidelines/Awesome Design. Workflow Playwright avalia 320, 390, 768, 1366 e 1600 px, capturando páginas e conferindo formulário, persistência, filtros, backup e fluxo de exclusão.
 
-## Dados mínimos do primeiro protótipo
+O README de concepção original está preservado na branch `archive/readme-only-20261027`.
 
-Função, habilidade, dificuldade, exercício, data de treino, evidência e autoavaliação.
-
-## MVP planejado
-
-Uma trilha completa para uma função, com exercícios editáveis, progresso local e revisão semanal.
-
-**Critério para considerar o MVP útil:** O jogador consegue escolher uma habilidade, praticar e consultar a evolução sem criar conta.
-
-## Limites e dependências
-
-Métricas automáticas e recomendações por patch seriam integrações futuras, não requisitos do primeiro protótipo.
-
-A implementação deve começar com **dados demonstrativos identificados e armazenamento local**, se adequado. Integrações externas, autenticação e anúncios exigem revisão própria; não serão anunciados como funcionais antes de existirem.
-
-## Próximo passo
-
-1. Desenhar uma tela com o fluxo principal.
-2. Implementar um protótipo pequeno que funcione no celular.
-3. Testar navegação, salvar/recuperar dados e tratamento de casos vazios.
-4. Pedir feedback de usuários antes de ampliar o escopo.
-
-## Projetos relacionados
-
-Este conceito faz parte do [Ideias IA Lab](https://github.com/HelioConde/ideias-ia-lab). Explore [outros repositórios de Hélio Conde](https://github.com/HelioConde?tab=repositories).
-
-*League of Legends pertence aos seus respectivos titulares. Projeto independente, sem afiliação oficial.*
-
-Autor: [Hélio Conde](https://github.com/HelioConde).
+Projeto independente e não afiliado aos donos de League of Legends, TFT ou Overwatch.
